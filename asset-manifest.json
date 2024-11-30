@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/css-advent-calendar-2024/css-advent-calendar/static/css/main.48618f53.css",
+    "main.js": "/css-advent-calendar-2024/css-advent-calendar/static/js/main.21dd0387.js",
+    "static/js/453.a5598531.chunk.js": "/css-advent-calendar-2024/css-advent-calendar/static/js/453.a5598531.chunk.js",
+    "static/media/background.jpg": "/css-advent-calendar-2024/css-advent-calendar/static/media/background.4a42f31b6eb07edcb61c.jpg",
+    "index.html": "/css-advent-calendar-2024/css-advent-calendar/index.html",
+    "main.48618f53.css.map": "/css-advent-calendar-2024/css-advent-calendar/static/css/main.48618f53.css.map",
+    "main.21dd0387.js.map": "/css-advent-calendar-2024/css-advent-calendar/static/js/main.21dd0387.js.map",
+    "453.a5598531.chunk.js.map": "/css-advent-calendar-2024/css-advent-calendar/static/js/453.a5598531.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.48618f53.css",
+    "static/js/main.21dd0387.js"
+  ]
+}
