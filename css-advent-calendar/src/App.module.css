@@ -9,6 +9,7 @@
   background-position: center;
   background-size: cover;
   font-family: "Niconne", cursive;
+  padding-bottom: 60px; /* Add space for footer */
 }
 
 .gridContainer {

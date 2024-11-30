@@ -1,0 +1,23 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  text-align: center;
+  font-family: 'Crimson Text', serif;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.link {
+  color: #9B1B30;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
