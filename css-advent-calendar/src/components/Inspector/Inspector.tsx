@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './Inspector.module.css';
 import { DayContent } from '../../data/advent-content';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism-tomorrow.css';
+import 'prismjs/components/prism-css';
 
 interface InspectorProps {
   isOpen: boolean;
@@ -9,6 +12,12 @@ interface InspectorProps {
 }
 
 export const Inspector: React.FC<InspectorProps> = ({ isOpen, content, onClose }) => {
+  useEffect(() => {
+    if (content?.code) {
+      Prism.highlightAll();
+    }
+  }, [content]);
+
   if (!isOpen || !content) return null;
 
   return (
@@ -21,7 +30,9 @@ export const Inspector: React.FC<InspectorProps> = ({ isOpen, content, onClose }
           {content.code && (
             <>
               <p>Example:</p>
-              <pre><code>{content.code}</code></pre>
+              <pre className={styles.codeBlock}>
+                <code className="language-css">{content.code}</code>
+              </pre>
             </>
           )}
           <div className={styles.browserSupport}>
