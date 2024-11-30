@@ -10,7 +10,7 @@ export const Footer: React.FC = () => {
         rel="noopener noreferrer"
         className={styles.link}
       >
-        Made by Steve
+        Made by Steve.
       </a>
     </footer>
   );
