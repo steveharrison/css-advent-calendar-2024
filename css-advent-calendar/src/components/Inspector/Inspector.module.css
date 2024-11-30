@@ -52,9 +52,16 @@
   margin-bottom: 10px;
 }
 
+.content h3 {
+  font-size: 18px;
+  margin: 20px 0 10px;
+  color: #444;
+}
+
 .content p {
   margin-bottom: 10px;
   line-height: 1.5;
+  font-family: serif;
 }
 
 .content code {
@@ -62,4 +69,45 @@
   padding: 4px 6px;
   border-radius: 4px;
   font-family: monospace;
+}
+
+.content pre {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+.browserSupport ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.browserSupport li {
+  padding: 5px 0;
+  font-family: monospace;
+}
+
+.links ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+}
+
+.links li {
+  margin: 8px 0;
+}
+
+.links a {
+  color: #0066cc;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.links a:hover {
+  text-decoration: underline;
 }

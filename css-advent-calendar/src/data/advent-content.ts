@@ -2,6 +2,17 @@ export interface DayContent {
   title: string;
   description: string;
   code?: string;
+  links: {
+    mdn?: string;
+    chrome?: string;
+    youtube?: string;
+  };
+  browserSupport: {
+    chrome: string;
+    firefox: string;
+    safari: string;
+    edge: string;
+  };
 }
 
 export const adventContent: Record<number, DayContent> = {
@@ -10,7 +21,535 @@ export const adventContent: Record<number, DayContent> = {
     description: "The :has() pseudo-class is a powerful new addition to CSS that allows you to select an element based on its children or descendants.",
     code: `.container:has(.child) {
   border: 2px solid blue;
-}`
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
+      chrome: "https://developer.chrome.com/blog/has-m105/",
+      youtube: "https://youtu.be/OGJvhpoE8b4"
+    },
+    browserSupport: {
+      chrome: "105+",
+      firefox: "121+",
+      safari: "15.4+",
+      edge: "105+"
+    }
   },
-  // Add more days here...
+  2: {
+    title: "Container Queries",
+    description: "Container queries allow you to apply styles based on the size of a container rather than the viewport, enabling truly modular responsive design.",
+    code: `.container {
+  container-type: inline-size;
+}
+
+@container (min-width: 400px) {
+  .card {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
+      chrome: "https://developer.chrome.com/blog/container-queries/",
+      youtube: "https://youtu.be/gCNMyYr7F6w"
+    },
+    browserSupport: {
+      chrome: "105+",
+      firefox: "110+",
+      safari: "16+",
+      edge: "105+"
+    }
+  },
+  3: {
+    title: "Scroll-Driven Animations",
+    description: "Create animations that progress based on scroll position, perfect for engaging storytelling and interactive experiences.",
+    code: `@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.element {
+  animation: fade linear;
+  animation-timeline: scroll();
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline",
+      chrome: "https://developer.chrome.com/articles/scroll-driven-animations/",
+      youtube: "https://youtu.be/oDcb3fvtETs"
+    },
+    browserSupport: {
+      chrome: "115+",
+      firefox: "Pending",
+      safari: "Pending",
+      edge: "115+"
+    }
+  },
+  4: {
+    title: "Subgrid",
+    description: "Subgrid allows nested grid items to participate in the parent grid's track sizing, making complex layouts easier to achieve.",
+    code: `.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.nested {
+  display: grid;
+  grid-template-columns: subgrid;
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
+      chrome: "https://developer.chrome.com/blog/css-subgrid/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "117+",
+      firefox: "71+",
+      safari: "16+",
+      edge: "117+"
+    }
+  },
+  5: {
+    title: "CSS Nesting",
+    description: "Native CSS nesting allows you to write more maintainable and logical stylesheets without a preprocessor.",
+    code: `.card {
+  background: white;
+  
+  & .title {
+    color: navy;
+  }
+  
+  &:hover {
+    background: #f0f0f0;
+  }
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting",
+      chrome: "https://developer.chrome.com/articles/css-nesting/",
+      youtube: "https://youtu.be/YnWPeA6l5UE"
+    },
+    browserSupport: {
+      chrome: "112+",
+      firefox: "117+",
+      safari: "16.4+",
+      edge: "112+"
+    }
+  },
+  6: {
+    title: "Custom Properties with @property",
+    description: "Define custom properties with type checking, default values, and inheritance behavior.",
+    code: `@property --hue {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: false;
+}
+
+.element {
+  background: hsl(var(--hue), 50%, 50%);
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@property",
+      chrome: "https://developer.chrome.com/blog/css-properties-values-api/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "85+",
+      firefox: "104+",
+      safari: "15.4+",
+      edge: "85+"
+    }
+  },
+  7: {
+    title: "View Transitions API",
+    description: "Create smooth transitions between different states or views of your web application.",
+    code: `::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
+/* Trigger with JS:
+document.startViewTransition(() => {
+  // DOM updates here
+}); */`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API",
+      chrome: "https://developer.chrome.com/blog/view-transitions/",
+      youtube: "https://youtu.be/oDcb3fvtETs"
+    },
+    browserSupport: {
+      chrome: "110+",
+      firefox: "Pending",
+      safari: "Pending",
+      edge: "110+"
+    }
+  },
+  8: {
+    title: "Cascade Layers",
+    description: "Control specificity with more granularity by creating explicit layers of styles.",
+    code: `@layer base, components, utilities;
+
+@layer base {
+  h1 { font-size: 2rem; }
+}
+
+@layer components {
+  .card { padding: 1rem; }
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@layer",
+      chrome: "https://developer.chrome.com/blog/cascade-layers/",
+      youtube: "https://youtu.be/YnWPeA6l5UE"
+    },
+    browserSupport: {
+      chrome: "99+",
+      firefox: "97+",
+      safari: "15.4+",
+      edge: "99+"
+    }
+  },
+  9: {
+    title: "CSS Grid: masonry-like Layout",
+    description: "Create Pinterest-style masonry layouts using CSS Grid's upcoming masonry value.",
+    code: `.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: masonry;
+  align-tracks: start;
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows",
+      chrome: "https://developer.chrome.com/blog/css-masonry/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "103+",
+      firefox: "103+",
+      safari: "16+",
+      edge: "103+"
+    }
+  },
+  10: {
+    title: "Color Functions",
+    description: "New color manipulation functions for more dynamic and flexible color schemes.",
+    code: `.element {
+  color: lch(50% 50 270);
+  background: color-mix(
+    in lch,
+    purple 50%,
+    lime
+  );
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color-mix",
+      chrome: "https://developer.chrome.com/blog/color-functions/",
+      youtube: "https://youtu.be/oDcb3fvtETs"
+    },
+    browserSupport: {
+      chrome: "111+",
+      firefox: "104+",
+      safari: "16.4+",
+      edge: "111+"
+    }
+  },
+  11: {
+    title: "Scroll Snap Plus",
+    description: "Enhanced scroll snapping with more control over snap positions and behavior.",
+    code: `.container {
+  scroll-snap-type: y mandatory;
+  scroll-padding: 2rem;
+}
+
+.item {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type",
+      chrome: "https://developer.chrome.com/blog/scroll-snap-plus/",
+      youtube: "https://youtu.be/YnWPeA6l5UE"
+    },
+    browserSupport: {
+      chrome: "105+",
+      firefox: "103+",
+      safari: "16+",
+      edge: "105+"
+    }
+  },
+  12: {
+    title: "Parent Selector (:parent)",
+    description: "Select an element based on whether it has any child elements (experimental).",
+    code: `:parent {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Selects elements that have children */`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
+      chrome: "https://developer.chrome.com/blog/parent-selector/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "105+",
+      firefox: "121+",
+      safari: "15.4+",
+      edge: "105+"
+    }
+  },
+  13: {
+    title: "Anchor Positioning",
+    description: "Position elements relative to an anchor element, perfect for tooltips and popovers.",
+    code: `.tooltip {
+  position: absolute;
+  anchor-name: --anchor;
+  top: anchor(--anchor top);
+  left: anchor(--anchor right);
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/anchor-name",
+      chrome: "https://developer.chrome.com/blog/anchor-positioning/",
+      youtube: "https://youtu.be/oDcb3fvtETs"
+    },
+    browserSupport: {
+      chrome: "117+",
+      firefox: "Pending",
+      safari: "Pending",
+      edge: "117+"
+    }
+  },
+  14: {
+    title: "CSS Toggles",
+    description: "Create stateful toggles directly in CSS without JavaScript.",
+    code: `.accordion {
+  toggle-root: accordion;
+}
+
+.panel {
+  toggle-trigger: accordion;
+  display: toggle(accordion);
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/toggle",
+      chrome: "https://developer.chrome.com/blog/css-toggles/",
+      youtube: "https://youtu.be/YnWPeA6l5UE"
+    },
+    browserSupport: {
+      chrome: "112+",
+      firefox: "117+",
+      safari: "16.4+",
+      edge: "112+"
+    }
+  },
+  15: {
+    title: "Relative Color Syntax",
+    description: "Modify colors relative to a base color using new syntax.",
+    code: `.button {
+  background: hsl(from purple h s 80%);
+  border-color: hsl(from purple h s l / 50%);
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color",
+      chrome: "https://developer.chrome.com/blog/relative-color-syntax/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "111+",
+      firefox: "104+",
+      safari: "16.4+",
+      edge: "111+"
+    }
+  },
+  16: {
+    title: "Trigonometric Functions",
+    description: "Use mathematical functions like sin, cos, and tan in CSS.",
+    code: `.rotating-element {
+  transform: rotate(calc(sin(var(--angle)) * 1rad));
+  left: calc(cos(var(--angle)) * 100px);
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/calc",
+      chrome: "https://developer.chrome.com/blog/trigonometric-functions/",
+      youtube: "https://youtu.be/oDcb3fvtETs"
+    },
+    browserSupport: {
+      chrome: "115+",
+      firefox: "104+",
+      safari: "16.4+",
+      edge: "115+"
+    }
+  },
+  17: {
+    title: "Scoped Styles",
+    description: "Scope styles to a specific part of the document without leaking to other elements.",
+    code: `@scope (.card) {
+  img {
+    border-radius: 8px;
+  }
+  
+  p {
+    margin: 1rem;
+  }
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@scope",
+      chrome: "https://developer.chrome.com/blog/scoped-styles/",
+      youtube: "https://youtu.be/YnWPeA6l5UE"
+    },
+    browserSupport: {
+      chrome: "112+",
+      firefox: "117+",
+      safari: "16.4+",
+      edge: "112+"
+    }
+  },
+  18: {
+    title: "Font Palette Features",
+    description: "Control color fonts with multiple palettes using CSS.",
+    code: `@font-palette-values --custom {
+  font-family: "Some Color Font";
+  base-palette: 1;
+  override-colors: 0 #000, 1 #F00;
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-palette-values",
+      chrome: "https://developer.chrome.com/blog/font-palette-features/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "111+",
+      firefox: "104+",
+      safari: "16.4+",
+      edge: "111+"
+    }
+  },
+  19: {
+    title: "CSS Module Scripts",
+    description: "Import CSS directly in JavaScript as a module.",
+    code: `/* styles.css */
+@layer components {
+  .button { /* ... */ }
+}
+
+/* Import in JS:
+import styles from './styles.css' assert { type: 'css' };
+document.adoptedStyleSheets = [styles]; */`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_modules",
+      chrome: "https://developer.chrome.com/blog/css-module-scripts/",
+      youtube: "https://youtu.be/oDcb3fvtETs"
+    },
+    browserSupport: {
+      chrome: "111+",
+      firefox: "104+",
+      safari: "16.4+",
+      edge: "111+"
+    }
+  },
+  20: {
+    title: "Scroll Timeline",
+    description: "Create animations that are linked to scroll progress through an element.",
+    code: `@scroll-timeline progress {
+  source: selector(".content");
+  orientation: vertical;
+  scroll-offsets: 0%, 100%;
+}
+
+.progress-bar {
+  animation-timeline: progress;
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@scroll-timeline",
+      chrome: "https://developer.chrome.com/blog/scroll-timeline/",
+      youtube: "https://youtu.be/YnWPeA6l5UE"
+    },
+    browserSupport: {
+      chrome: "112+",
+      firefox: "117+",
+      safari: "16.4+",
+      edge: "112+"
+    }
+  },
+  21: {
+    title: "Media Query Ranges",
+    description: "Write more intuitive media queries using comparison operators.",
+    code: `@media (width >= 768px) and 
+       (width <= 1024px) {
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries",
+      chrome: "https://developer.chrome.com/blog/media-query-ranges/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "105+",
+      firefox: "104+",
+      safari: "16+",
+      edge: "105+"
+    }
+  },
+  22: {
+    title: "CSS Grid: Subgrid Stacking",
+    description: "Stack subgrids to create complex, nested layouts while maintaining alignment.",
+    code: `.grid {
+  display: grid;
+  grid-template: subgrid / subgrid;
+  grid-row: span 2;
+  grid-column: span 3;
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
+      chrome: "https://developer.chrome.com/blog/css-grid-subgrid-stacking/",
+      youtube: "https://youtu.be/oDcb3fvtETs"
+    },
+    browserSupport: {
+      chrome: "117+",
+      firefox: "71+",
+      safari: "16+",
+      edge: "117+"
+    }
+  },
+  23: {
+    title: "CSS Custom Highlight API",
+    description: "Create custom text highlights with complete styling control.",
+    code: `::highlight(custom-highlight) {
+  background-color: #ff0;
+  color: black;
+}
+
+/* Use with JS Highlight API */`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/::highlight",
+      chrome: "https://developer.chrome.com/blog/css-custom-highlight-api/",
+      youtube: "https://youtu.be/YnWPeA6l5UE"
+    },
+    browserSupport: {
+      chrome: "112+",
+      firefox: "117+",
+      safari: "16.4+",
+      edge: "112+"
+    }
+  },
+  24: {
+    title: "Container Style Queries",
+    description: "Apply styles based on the computed styles of a container, not just its size.",
+    code: `@container style(--theme: dark) {
+  .card {
+    background: #333;
+    color: white;
+  }
+}`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
+      chrome: "https://developer.chrome.com/blog/container-style-queries/",
+      youtube: "https://youtu.be/3F5ALBxJqPY"
+    },
+    browserSupport: {
+      chrome: "105+",
+      firefox: "110+",
+      safari: "16+",
+      edge: "105+"
+    }
+  }
 };

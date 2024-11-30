@@ -23,6 +23,29 @@ export const Inspector: React.FC<InspectorProps> = ({ isOpen, content, onClose }
             <pre><code>{content.code}</code></pre>
           </>
         )}
+        <div className={styles.browserSupport}>
+          <h3>Browser Support</h3>
+          <ul>
+            <li>Chrome: {content.browserSupport.chrome}</li>
+            <li>Firefox: {content.browserSupport.firefox}</li>
+            <li>Safari: {content.browserSupport.safari}</li>
+            <li>Edge: {content.browserSupport.edge}</li>
+          </ul>
+        </div>
+        <div className={styles.links}>
+          <h3>Learn More</h3>
+          <ul>
+            {content.links.mdn && (
+              <li><a href={content.links.mdn} target="_blank" rel="noopener noreferrer">MDN Documentation</a></li>
+            )}
+            {content.links.chrome && (
+              <li><a href={content.links.chrome} target="_blank" rel="noopener noreferrer">Chrome Developers</a></li>
+            )}
+            {content.links.youtube && (
+              <li><a href={content.links.youtube} target="_blank" rel="noopener noreferrer">Watch on YouTube</a></li>
+            )}
+          </ul>
+        </div>
       </div>
     </div>
   );
