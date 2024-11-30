@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Niconne&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <title>Floating Inspector Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+      background-image: url("./background.jpg");
+      background-position: center;
+      background-size: cover;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+      gap: 40px;
+      padding: 20px;
+      width: 90%;
+      /* max-width: 600px; */
+    }
+
+    .day {
+      aspect-ratio: 1;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.462);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 38px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      transition: transform 0.3s ease; /* Smooth transition */
+
+    }
+
+    .day:hover {
+      transform: scale(1.1); /* Makes the box 10% bigger */
+    }
+
+    .day.selected {
+      background-color: #2ecc71;
+    }
+
+    .inspector {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      top: 20px;
+      width: 320px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 12px;
+      padding: 20px;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+    }
+
+    .inspector.active {
+      display: flex;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      background-color: #ddd;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      font-size: 16px;
+      color: #333;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .close-button:hover {
+      background-color: #bbb;
+    }
+
+    .inspector-content {
+      margin-top: 40px;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .inspector-content h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .inspector-content p {
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .inspector-content code {
+      background-color: #f1f1f1;
+      padding: 4px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    
+    .niconne-regular {
+      font-family: "Niconne", cursive;
+      font-weight: 400;
+      font-style: normal;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container niconne-regular">
+    <!-- Generate 25 squares -->
+    <div class="day" data-index="1" onclick="showInspector(1)">1</div>
+    <div class="day" data-index="2" onclick="showInspector(2)">2</div>
+    <div class="day" data-index="3" onclick="showInspector(3)">3</div>
+    <div class="day" data-index="4" onclick="showInspector(4)">4</div>
+    <div class="day" data-index="5" onclick="showInspector(5)">5</div>
+    <div class="day" data-index="6" onclick="showInspector(6)">6</div>
+    <div class="day" data-index="7" onclick="showInspector(7)">7</div>
+    <div class="day" data-index="8" onclick="showInspector(8)">8</div>
+    <div class="day" data-index="9" onclick="showInspector(9)">9</div>
+    <div class="day" data-index="10" onclick="showInspector(10)">10</div>
+    <div class="day" data-index="11" onclick="showInspector(11)">11</div>
+    <div class="day" data-index="12" onclick="showInspector(12)">12</div>
+    <div class="day" data-index="13" onclick="showInspector(13)">13</div>
+    <div class="day" data-index="14" onclick="showInspector(14)">14</div>
+    <div class="day" data-index="15" onclick="showInspector(15)">15</div>
+    <div class="day" data-index="16" onclick="showInspector(16)">16</div>
+    <div class="day" data-index="17" onclick="showInspector(17)">17</div>
+    <div class="day" data-index="18" onclick="showInspector(18)">18</div>
+    <div class="day" data-index="19" onclick="showInspector(19)">19</div>
+    <div class="day" data-index="20" onclick="showInspector(20)">20</div>
+    <div class="day" data-index="21" onclick="showInspector(21)">21</div>
+    <div class="day" data-index="22" onclick="showInspector(22)">22</div>
+    <div class="day" data-index="23" onclick="showInspector(23)">23</div>
+    <div class="day" data-index="24" onclick="showInspector(24)">24</div>
+  </div>
+
+  <div class="inspector" id="inspector">
+    <div class="close-button" onclick="closeInspector()">×</div>
+    <div class="inspector-content" id="inspector-content">
+      <h2>CSS Feature: <code>:has()</code> Pseudo-Class</h2>
+      <p>The <code>:has()</code> pseudo-class is a powerful new addition to CSS that allows you to select an element based on its children or descendants.</p>
+      <p>Example:</p>
+      <pre><code>
+.container:has(.child) {
+  border: 2px solid blue;
+}
+      </code></pre>
+      <p>In this example, the <code>.container</code> element will have a blue border if it contains an element with the class <code>.child</code>.</p>
+      <p>Use this feature to style elements dynamically based on their content or structure.</p>
+    </div>
+  </div>
+
+  <script>
+    function showInspector(index) {
+      const inspector = document.getElementById("inspector");
+      const content = document.getElementById("inspector-content");
+      content.innerHTML += `<p>You selected square ${index}.</p>`;
+      inspector.classList.add("active");
+    }
+
+    function closeInspector() {
+      const inspector = document.getElementById("inspector");
+      inspector.classList.remove("active");
+    }
+  </script>
+</body>
+</html>
