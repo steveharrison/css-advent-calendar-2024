@@ -2,7 +2,7 @@
   "name": "css-advent-calendar",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://steveharrison.github.io/css-advent-calendar",
+  "homepage": "https://cssadventcalendar.dev",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
