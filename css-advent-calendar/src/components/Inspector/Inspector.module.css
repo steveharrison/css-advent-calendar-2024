@@ -1,17 +1,23 @@
-.inspector {
+.wrapper {
   position: fixed;
   bottom: 20px;
   right: 20px;
   top: 20px;
   width: 320px;
+  z-index: 10;
+}
+
+.inspector {
+  position: relative;
+  height: 100%;
   background-color: #ffffff;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   padding: 20px;
-  z-index: 10;
   display: none;
   flex-direction: column;
   overflow-y: auto;
+  z-index: 1;
 }
 
 .inspector.active {
@@ -20,48 +26,59 @@
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  background-color: #ddd;
+  top: -15px;
+  right: -15px;
+  width: 36px;
+  height: 36px;
+  background-color: white;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   cursor: pointer;
-  font-size: 16px;
-  color: #333;
-  font-weight: bold;
+  font-size: 24px;
+  color: #9B1B30;
+  font-weight: 300;
   line-height: 1;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  font-family: 'Crimson Text', serif;
+  transform: rotate(45deg);
+  z-index: 2;
 }
 
 .closeButton:hover {
-  background-color: #bbb;
+  background-color: #9B1B30;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transform: rotate(135deg);
 }
 
 .content {
-  margin-top: 40px;
+  margin-top: 10px;
   font-size: 16px;
   color: #333;
+  font-family: 'Crimson Text', serif;
 }
 
 .content h2 {
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 24px;
+  margin-bottom: 15px;
+  font-family: 'Niconne', cursive;
+  color: #222;
 }
 
 .content h3 {
-  font-size: 18px;
+  font-size: 20px;
   margin: 20px 0 10px;
   color: #444;
+  font-family: 'Niconne', cursive;
 }
 
 .content p {
   margin-bottom: 10px;
-  line-height: 1.5;
-  font-family: serif;
+  line-height: 1.6;
+  font-size: 17px;
 }
 
 .content code {
@@ -69,6 +86,7 @@
   padding: 4px 6px;
   border-radius: 4px;
   font-family: monospace;
+  font-size: 14px;
 }
 
 .content pre {
@@ -87,7 +105,8 @@
 
 .browserSupport li {
   padding: 5px 0;
-  font-family: monospace;
+  font-family: 'Crimson Text', serif;
+  font-size: 17px;
 }
 
 .links ul {
@@ -98,14 +117,16 @@
 
 .links li {
   margin: 8px 0;
+  font-size: 17px;
 }
 
 .links a {
-  color: #0066cc;
+  color: #9B1B30;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   gap: 5px;
+  font-family: 'Crimson Text', serif;
 }
 
 .links a:hover {
