@@ -143,3 +143,35 @@
 .links a:hover {
   text-decoration: underline;
 }
+
+.iconLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9B1B30;
+  text-decoration: none;
+}
+
+.iconLink:hover {
+  text-decoration: underline;
+}
+
+.iconLink svg {
+  flex-shrink: 0;
+}
+
+.youtubeLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #9B1B30;
+  text-decoration: none;
+}
+
+.youtubeLink:hover {
+  text-decoration: underline;
+}
+
+.youtubeLink svg {
+  flex-shrink: 0;
+}
