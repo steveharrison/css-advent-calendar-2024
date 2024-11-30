@@ -215,7 +215,7 @@ document.startViewTransition(() => {
   align-tracks: start;
 }`,
     links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows",
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Masonry_layout",
       webdev: "https://web.dev/articles/css-masonry",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
