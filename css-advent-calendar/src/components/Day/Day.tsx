@@ -9,7 +9,7 @@ interface DayProps {
 
 export const Day: React.FC<DayProps> = ({ number, isSelected, onClick }) => {
   function handleClick() {
-    if (number > 24) return;
+    if (number > new Date().getDay()) return;
     onClick(number);
   }
   
