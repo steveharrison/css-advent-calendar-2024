@@ -173,11 +173,16 @@
   </div>
 
   <script>
-    function showInspector(index) {
-      const inspector = document.getElementById("inspector");
-      const content = document.getElementById("inspector-content");
-      content.innerHTML += `<p>You selected square ${index}.</p>`;
-      inspector.classList.add("active");
+    function showInspector(dayIndex) {
+      // const currentDay = new Date().getDay();
+      const currentDay = 2;
+
+      if (dayIndex <= currentDay) {
+        const inspector = document.getElementById("inspector");
+        const content = document.getElementById("inspector-content");
+        content.innerHTML += `<p>You selected square ${dayIndex}.</p>`;
+        inspector.classList.add("active");
+      }
     }
 
     function closeInspector() {
