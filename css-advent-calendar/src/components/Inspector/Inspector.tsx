@@ -50,32 +50,20 @@ export const Inspector: React.FC<InspectorProps> = ({ isOpen, content, onClose }
               {content.links.mdn && (
                 <li>
                   <a href={content.links.mdn} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4.5 2.5H11.5L13.5 4.5V13.5H2.5V2.5H4.5Z" stroke="currentColor" strokeWidth="1.5" />
-                      <path d="M5 6.5H11M5 9.5H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                    </svg>
                     MDN Documentation
                   </a>
                 </li>
               )}
-              {content.links.chrome && (
+              {content.links.webdev && (
                 <li>
-                  <a href={content.links.chrome} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M4.5 2.5H11.5L13.5 4.5V13.5H2.5V2.5H4.5Z" stroke="currentColor" strokeWidth="1.5" />
-                      <path d="M5 6.5H11M5 9.5H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                    </svg>
-                    Chrome Developers
+                  <a href={content.links.webdev} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
+                    web.dev Info
                   </a>
                 </li>
               )}
               {content.links.youtube && (
                 <li>
                   <a href={content.links.youtube} target="_blank" rel="noopener noreferrer" className={styles.iconLink}>
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="8" cy="8" r="7" stroke="currentColor" strokeWidth="1.5" />
-                      <path d="M6.5 5.5L11 8L6.5 10.5V5.5Z" stroke="currentColor" strokeWidth="1.5" />
-                    </svg>
                     Watch on YouTube
                   </a>
                 </li>

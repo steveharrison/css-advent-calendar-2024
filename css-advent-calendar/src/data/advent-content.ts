@@ -4,7 +4,7 @@ export interface DayContent {
   code?: string;
   links: {
     mdn?: string;
-    chrome?: string;
+    webdev?: string;
     youtube?: string;
   };
   browserSupport: {
@@ -24,7 +24,7 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
-      chrome: "https://developer.chrome.com/blog/has-m105/",
+      webdev: "https://web.dev/articles/has",
       youtube: "https://youtu.be/OGJvhpoE8b4"
     },
     browserSupport: {
@@ -49,7 +49,7 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
-      chrome: "https://developer.chrome.com/blog/container-queries/",
+      webdev: "https://web.dev/articles/cq-stable",
       youtube: "https://youtu.be/gCNMyYr7F6w"
     },
     browserSupport: {
@@ -73,7 +73,7 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline",
-      chrome: "https://developer.chrome.com/articles/scroll-driven-animations/",
+      webdev: "https://web.dev/articles/scroll-driven-animations",
       youtube: "https://youtu.be/Qj2JjDq8cWI"
     },
     browserSupport: {
@@ -97,7 +97,7 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
-      chrome: "https://developer.chrome.com/docs/new/css/css-subgrid/",
+      webdev: "https://web.dev/articles/css-subgrid",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
@@ -123,7 +123,7 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting",
-      chrome: "https://developer.chrome.com/articles/css-nesting/",
+      webdev: "https://web.dev/articles/css-nesting",
       youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
@@ -147,7 +147,7 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@property",
-      chrome: "https://developer.chrome.com/blog/css-properties-values-api/",
+      webdev: "https://web.dev/articles/at-property",
       youtube: "https://youtu.be/kX3ELv3-9C0"
     },
     browserSupport: {
@@ -171,7 +171,7 @@ document.startViewTransition(() => {
 }); */`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API",
-      chrome: "https://developer.chrome.com/blog/view-transitions/",
+      webdev: "https://web.dev/articles/view-transitions",
       youtube: "https://youtu.be/JCJUPJ_zDQ4"
     },
     browserSupport: {
@@ -195,7 +195,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@layer",
-      chrome: "https://developer.chrome.com/blog/cascade-layers/",
+      webdev: "https://web.dev/articles/cascade-layers",
       youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
@@ -216,7 +216,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows",
-      chrome: "https://developer.chrome.com/blog/css-masonry/",
+      webdev: "https://web.dev/articles/css-masonry",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
@@ -239,7 +239,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color-mix",
-      chrome: "https://developer.chrome.com/blog/color-functions/",
+      webdev: "https://web.dev/articles/color-functions",
       youtube: "https://youtu.be/oDcb3fvtETs"
     },
     browserSupport: {
@@ -263,7 +263,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type",
-      chrome: "https://developer.chrome.com/blog/scroll-snap-plus/",
+      webdev: "https://web.dev/articles/scroll-snap-plus",
       youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
@@ -284,7 +284,7 @@ document.startViewTransition(() => {
 /* Selects elements that have children */`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
-      chrome: "https://developer.chrome.com/blog/parent-selector/",
+      webdev: "https://web.dev/articles/parent-selector",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
@@ -305,7 +305,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/anchor-name",
-      chrome: "https://developer.chrome.com/blog/anchor-positioning/",
+      webdev: "https://web.dev/articles/anchor-positioning",
       youtube: "https://youtu.be/oDcb3fvtETs"
     },
     browserSupport: {
@@ -328,7 +328,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/toggle",
-      chrome: "https://developer.chrome.com/blog/css-toggles/",
+      webdev: "https://web.dev/articles/css-toggles",
       youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
@@ -347,7 +347,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color",
-      chrome: "https://developer.chrome.com/blog/relative-color-syntax/",
+      webdev: "https://web.dev/articles/relative-color-syntax",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
@@ -366,7 +366,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/calc",
-      chrome: "https://developer.chrome.com/blog/trigonometric-functions/",
+      webdev: "https://web.dev/articles/trigonometric-functions",
       youtube: "https://youtu.be/oDcb3fvtETs"
     },
     browserSupport: {
@@ -390,7 +390,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@scope",
-      chrome: "https://developer.chrome.com/blog/scoped-styles/",
+      webdev: "https://web.dev/articles/scoped-styles",
       youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
@@ -410,7 +410,7 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-palette-values",
-      chrome: "https://developer.chrome.com/blog/font-palette-features/",
+      webdev: "https://web.dev/articles/font-palette-features",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
@@ -433,7 +433,7 @@ import styles from './styles.css' assert { type: 'css' };
 document.adoptedStyleSheets = [styles]; */`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_modules",
-      chrome: "https://developer.chrome.com/blog/css-module-scripts/",
+      webdev: "https://web.dev/articles/css-module-scripts",
       youtube: "https://youtu.be/oDcb3fvtETs"
     },
     browserSupport: {
@@ -457,7 +457,7 @@ document.adoptedStyleSheets = [styles]; */`,
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@scroll-timeline",
-      chrome: "https://developer.chrome.com/blog/scroll-timeline/",
+      webdev: "https://web.dev/articles/scroll-timeline",
       youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
@@ -479,7 +479,7 @@ document.adoptedStyleSheets = [styles]; */`,
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries",
-      chrome: "https://developer.chrome.com/blog/media-query-ranges/",
+      webdev: "https://web.dev/articles/media-query-ranges",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
@@ -500,7 +500,7 @@ document.adoptedStyleSheets = [styles]; */`,
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
-      chrome: "https://developer.chrome.com/blog/css-grid-subgrid-stacking/",
+      webdev: "https://web.dev/articles/css-grid-subgrid-stacking",
       youtube: "https://youtu.be/oDcb3fvtETs"
     },
     browserSupport: {
@@ -521,7 +521,7 @@ document.adoptedStyleSheets = [styles]; */`,
 /* Use with JS Highlight API */`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/::highlight",
-      chrome: "https://developer.chrome.com/blog/css-custom-highlight-api/",
+      webdev: "https://web.dev/articles/css-custom-highlight-api",
       youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
@@ -542,7 +542,7 @@ document.adoptedStyleSheets = [styles]; */`,
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
-      chrome: "https://developer.chrome.com/blog/container-style-queries/",
+      webdev: "https://web.dev/articles/container-style-queries",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
