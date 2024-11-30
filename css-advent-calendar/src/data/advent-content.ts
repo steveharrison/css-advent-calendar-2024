@@ -74,7 +74,7 @@ export const adventContent: Record<number, DayContent> = {
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline",
       chrome: "https://developer.chrome.com/articles/scroll-driven-animations/",
-      youtube: "https://youtu.be/oDcb3fvtETs"
+      youtube: "https://youtu.be/Qj2JjDq8cWI"
     },
     browserSupport: {
       chrome: "115+",
@@ -97,7 +97,7 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
-      chrome: "https://developer.chrome.com/blog/css-subgrid/",
+      chrome: "https://developer.chrome.com/docs/new/css/css-subgrid/",
       youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
@@ -148,7 +148,7 @@ export const adventContent: Record<number, DayContent> = {
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@property",
       chrome: "https://developer.chrome.com/blog/css-properties-values-api/",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
+      youtube: "https://youtu.be/kX3ELv3-9C0"
     },
     browserSupport: {
       chrome: "85+",
@@ -172,7 +172,7 @@ document.startViewTransition(() => {
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API",
       chrome: "https://developer.chrome.com/blog/view-transitions/",
-      youtube: "https://youtu.be/oDcb3fvtETs"
+      youtube: "https://youtu.be/JCJUPJ_zDQ4"
     },
     browserSupport: {
       chrome: "110+",
