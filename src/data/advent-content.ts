@@ -24,7 +24,6 @@ export const adventContent: Record<number, DayContent> = {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
-      webdev: "https://web.dev/articles/has",
       youtube: "https://youtu.be/OGJvhpoE8b4"
     },
     browserSupport: {
