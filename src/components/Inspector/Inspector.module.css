@@ -16,7 +16,6 @@
   padding: 20px;
   display: none;
   flex-direction: column;
-  overflow-y: auto;
   z-index: 1;
 }
 
@@ -24,37 +23,9 @@
   display: flex;
 }
 
-.closeButton {
-  position: absolute;
-  top: -15px;
-  right: -15px;
-  width: 36px;
-  height: 36px;
-  background-color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  cursor: pointer;
-  font-size: 24px;
-  color: #9B1B30;
-  font-weight: 300;
-  line-height: 1;
-  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  font-family: 'Crimson Text', serif;
-  transform: rotate(45deg);
-  z-index: 2;
-}
-
-.closeButton:hover {
-  background-color: #9B1B30;
-  color: white;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  transform: rotate(135deg);
-}
-
 .content {
+  overflow-y: auto;
+  flex-grow: 1;
   margin-top: 10px;
   font-size: 16px;
   color: #333;
@@ -174,4 +145,60 @@
 
 .youtubeLink svg {
   flex-shrink: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: 36px;
+  height: 36px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: pointer;
+  font-size: 24px;
+  color: #9B1B30;
+  font-weight: 300;
+  line-height: 1;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  font-family: 'Crimson Text', serif;
+  transform: rotate(45deg);
+  z-index: 2;
+}
+
+.closeButton:hover {
+  background-color: #9B1B30;
+  color: white;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  transform: rotate(135deg);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    top: 12px;
+    width: auto;
+  }
+
+  .inspector {
+    border-radius: 12px;
+    height: 100%;
+    margin: 0;
+    max-height: calc(100vh - 24px);
+  }
+
+  .inspector.active {
+    display: flex;
+  }
+
+  .content {
+    padding-right: 10px;
+    margin-right: -10px;
+  }
 }
