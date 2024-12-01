@@ -34,30 +34,48 @@ export const adventContent: Record<number, DayContent> = {
     }
   },
   2: {
-    title: "Container Queries",
-    description: "Container queries allow you to apply styles based on the size of a container rather than the viewport, enabling truly modular responsive design.",
-    code: `.container {
-  container-type: inline-size;
-}
-
-@container (min-width: 400px) {
-  .card {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-  }
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
-      webdev: "https://web.dev/articles/cq-stable",
-      youtube: "https://youtu.be/gCNMyYr7F6w"
+      title: "CSS Custom Highlight API",
+      description: "The CSS Custom Highlight API provides a mechanism for styling arbitrary text ranges on a document by using JavaScript to create the ranges, and CSS to style them.",
+      code: `::highlight(custom-highlight) {
+    background-color: #ff0;
+    color: black;
+  }`,
+      links: {
+        mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/::highlight",
+        youtube: "https://www.youtube.com/watch?v=1qldqyT324o"
+      },
+      browserSupport: {
+        chrome: "105+",
+        firefox: "Nightly",
+        safari: "17.2+",
+        edge: "105+"
+      }
     },
-    browserSupport: {
-      chrome: "105+",
-      firefox: "110+",
-      safari: "16+",
-      edge: "105+"
-    }
-  },
+//   2: {
+//     title: "Container Queries",
+//     description: "Container queries allow you to apply styles based on the size of a container rather than the viewport, enabling truly modular responsive design.",
+//     code: `.container {
+//   container-type: inline-size;
+// }
+// 
+// @container (min-width: 400px) {
+//   .card {
+//     display: grid;
+//     grid-template-columns: 2fr 1fr;
+//   }
+// }`,
+//     links: {
+//       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
+//       webdev: "https://web.dev/articles/cq-stable",
+//       youtube: "https://youtu.be/gCNMyYr7F6w"
+//     },
+//     browserSupport: {
+//       chrome: "105+",
+//       firefox: "110+",
+//       safari: "16+",
+//       edge: "105+"
+//     }
+//   },
   3: {
     title: "Scroll-Driven Animations",
     description: "Create animations that progress based on scroll position, perfect for engaging storytelling and interactive experiences.",
@@ -507,27 +525,6 @@ document.adoptedStyleSheets = [styles]; */`,
       firefox: "71+",
       safari: "16+",
       edge: "117+"
-    }
-  },
-  23: {
-    title: "CSS Custom Highlight API",
-    description: "Create custom text highlights with complete styling control.",
-    code: `::highlight(custom-highlight) {
-  background-color: #ff0;
-  color: black;
-}
-
-/* Use with JS Highlight API */`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/::highlight",
-      webdev: "https://web.dev/articles/css-custom-highlight-api",
-      youtube: "https://youtu.be/YnWPeA6l5UE"
-    },
-    browserSupport: {
-      chrome: "112+",
-      firefox: "117+",
-      safari: "16.4+",
-      edge: "112+"
     }
   },
   24: {
