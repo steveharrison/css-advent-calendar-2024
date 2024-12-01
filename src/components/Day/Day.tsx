@@ -18,7 +18,7 @@ export const Day: React.FC<DayProps> = ({ number, isSelected, onClick }) => {
   
   return (
     <div 
-      className={`${styles.day} ${isCurrentDay ? styles.selected : ''}`}
+      className={`${styles.day} ${isCurrentDay ? styles.current : ''} ${isSelected ? styles.selected : ''}`}
       onClick={handleClick}
     >
       {number}

@@ -9,14 +9,17 @@
   color: rgba(255, 255, 255, 0.52);
   font-size: 50px;
   cursor: pointer;
+}
+
+.day.current {
+  color: white;
   transition: transform 0.3s ease;
 }
 
-.day.selected {
-  color: white;
-  background-color: #9B1B30;
+.day.current:hover {
+  transform: scale(1.1);
 }
 
-.day.selected:hover {
-  transform: scale(1.1);
+.day.selected {
+  background-color: #9B1B30;
 }
