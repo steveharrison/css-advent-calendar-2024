@@ -6,16 +6,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: rgba(255, 255, 255, 0.52);
   font-size: 50px;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
-.day:hover {
-  transform: scale(1.1);
+.day.selected {
+  color: white;
+  background-color: #9B1B30;
 }
 
-.day.selected {
-  background-color: #9B1B30;
+.day.selected:hover {
+  transform: scale(1.1);
 }

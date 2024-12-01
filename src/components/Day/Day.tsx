@@ -8,14 +8,17 @@ interface DayProps {
 }
 
 export const Day: React.FC<DayProps> = ({ number, isSelected, onClick }) => {
+  const currentDay = new Date().getDate();
+  const isCurrentDay = number === currentDay;
+
   function handleClick() {
-    if (number > new Date().getDay() + 1) return;
+    if (number > currentDay) return;
     onClick(number);
   }
   
   return (
     <div 
-      className={`${styles.day} ${isSelected ? styles.selected : ''}`}
+      className={`${styles.day} ${isCurrentDay ? styles.selected : ''}`}
       onClick={handleClick}
     >
       {number}
