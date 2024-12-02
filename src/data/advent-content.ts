@@ -37,9 +37,9 @@ export const adventContent: Record<number, DayContent> = {
       title: "CSS Custom Highlight API",
       description: "The CSS Custom Highlight API provides a mechanism for styling arbitrary text ranges on a document by using JavaScript to create the ranges, and CSS to style them.",
       code: `::highlight(custom-highlight) {
-    background-color: #ff0;
-    color: black;
-  }`,
+  background-color: #ff0;
+  color: black;
+}`,
       links: {
         mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/::highlight",
         youtube: "https://www.youtube.com/watch?v=1qldqyT324o"
@@ -51,132 +51,187 @@ export const adventContent: Record<number, DayContent> = {
         edge: "105+"
       }
     },
-//   2: {
-//     title: "Container Queries",
-//     description: "Container queries allow you to apply styles based on the size of a container rather than the viewport, enabling truly modular responsive design.",
-//     code: `.container {
-//   container-type: inline-size;
+  3: {
+        title: ":user-valid and :user-invalid Pseudo-Classes",
+        description: "The :user-valid and :user-invalid pseudo-class selectors help improve the user experience of input validation by giving feedback about mistakes only after a user has changed input. With these new selectors, there's no longer a need to write stateful code to keep track of input a user has changed.",
+        code: `input:user-invalid {
+  border-color: red;
+}
+    
+input:user-valid {
+  border-color: green;
+}`,
+        links: {
+          mdn: 'https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid',
+          webdev: "https://web.dev/articles/user-valid-and-user-invalid-pseudo-classes"
+        },
+        browserSupport: {
+          chrome: "119+",
+          firefox: "88+",
+          safari: "16.5+",
+          edge: "119+"
+        }
+      },
+      4: {
+        title: "Popover API",
+        description: "The Popover API provides a native way to create popups, tooltips, and other floating UI elements with proper keyboard navigation and focus management.",
+        code: `<button popovertarget="my-popover">Open Popover</button>
+        
+<div id="my-popover" popover>
+  <p>I am a popover with more information.</p>
+</div>`,
+        links: {
+          mdn: "https://developer.mozilla.org/en-US/docs/Web/API/Popover_API",
+          webdev: "https://web.dev/blog/popover-api",
+          youtube: "https://www.youtube.com/watch?v=0_wgyB64a8I",
+        },
+        browserSupport: {
+          chrome: "114+",
+          firefox: "125+",
+          safari: "17+",
+          edge: "114+"
+        }
+      },
+      5: {
+        title: "Custom <select> styling",
+        description: "Experimental: new ways to style select menus. The current, work-in-progress way to do this is to use an appearance property in CSS, set to appearance: base-select. Once appearance is set, you'll be opting-in to a new, customizable select experience.",
+        code: `select {
+  appearance: base-select;
+}`,
+        links: {
+          webdev: "https://developer.chrome.com/blog/new-in-web-ui-io-2024#selectmenu"
+        },
+        browserSupport: {
+          chrome: "Experimental",
+          firefox: "No",
+          safari: "No",
+          edge: "Experimental"
+        }
+      },
+      6: {
+        title: "Anchor Positioning",
+        description: "Using anchor positioning, with just a few lines of code, the browser can handle the logic to tether a positioned element to one or more anchor elements. In the following example, a simple tooltip is anchored to each button, positioned at the bottom center.",
+        code: `.anchor {
+  anchor-name: --my-anchor;
+}
+        
+.positioned {
+  position: absolute;
+  position-anchor: --my-anchor;
+}`,
+        links: {
+          mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning",
+          webdev: "https://developer.chrome.com/blog/anchor-positioning-api",
+          youtube: "https://www.youtube.com/watch?v=ri8mBLXK9gE"
+        },
+        browserSupport: {
+          chrome: "125+",
+          firefox: "No",
+          safari: "No",
+          edge: "125+"
+        }
+      },
+//   3: {
+//     title: "Scroll-Driven Animations",
+//     description: "Create animations that progress based on scroll position, perfect for engaging storytelling and interactive experiences.",
+//     code: `@keyframes fade {
+//   from { opacity: 0; }
+//   to { opacity: 1; }
 // }
 // 
-// @container (min-width: 400px) {
-//   .card {
-//     display: grid;
-//     grid-template-columns: 2fr 1fr;
+// .element {
+//   animation: fade linear;
+//   animation-timeline: scroll();
+// }`,
+//     links: {
+//       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline",
+//       webdev: "https://web.dev/articles/scroll-driven-animations",
+//       youtube: "https://youtu.be/Qj2JjDq8cWI"
+//     },
+//     browserSupport: {
+//       chrome: "115+",
+//       firefox: "Pending",
+//       safari: "Pending",
+//       edge: "115+"
+//     }
+//   },
+//   4: {
+//     title: "Subgrid",
+//     description: "Subgrid allows nested grid items to participate in the parent grid's track sizing, making complex layouts easier to achieve.",
+//     code: `.grid {
+//   display: grid;
+//   grid-template-columns: repeat(3, 1fr);
+// }
+// 
+// .nested {
+//   display: grid;
+//   grid-template-columns: subgrid;
+// }`,
+//     links: {
+//       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
+//       webdev: "https://web.dev/articles/css-subgrid",
+//       youtube: "https://youtu.be/3F5ALBxJqPY"
+//     },
+//     browserSupport: {
+//       chrome: "117+",
+//       firefox: "71+",
+//       safari: "16+",
+//       edge: "117+"
+//     }
+//   },
+//   5: {
+//     title: "CSS Nesting",
+//     description: "Native CSS nesting allows you to write more maintainable and logical stylesheets without a preprocessor.",
+//     code: `.card {
+//   background: white;
+//   
+//   & .title {
+//     color: navy;
+//   }
+//   
+//   &:hover {
+//     background: #f0f0f0;
 //   }
 // }`,
 //     links: {
-//       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
-//       webdev: "https://web.dev/articles/cq-stable",
-//       youtube: "https://youtu.be/gCNMyYr7F6w"
+//       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting",
+//       webdev: "https://web.dev/articles/css-nesting",
+//       youtube: "https://youtu.be/YnWPeA6l5UE"
 //     },
 //     browserSupport: {
-//       chrome: "105+",
-//       firefox: "110+",
-//       safari: "16+",
-//       edge: "105+"
+//       chrome: "112+",
+//       firefox: "117+",
+//       safari: "16.4+",
+//       edge: "112+"
 //     }
 //   },
-  3: {
-    title: "Scroll-Driven Animations",
-    description: "Create animations that progress based on scroll position, perfect for engaging storytelling and interactive experiences.",
-    code: `@keyframes fade {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-.element {
-  animation: fade linear;
-  animation-timeline: scroll();
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline",
-      webdev: "https://web.dev/articles/scroll-driven-animations",
-      youtube: "https://youtu.be/Qj2JjDq8cWI"
-    },
-    browserSupport: {
-      chrome: "115+",
-      firefox: "Pending",
-      safari: "Pending",
-      edge: "115+"
-    }
-  },
-  4: {
-    title: "Subgrid",
-    description: "Subgrid allows nested grid items to participate in the parent grid's track sizing, making complex layouts easier to achieve.",
-    code: `.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.nested {
-  display: grid;
-  grid-template-columns: subgrid;
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
-      webdev: "https://web.dev/articles/css-subgrid",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
-    },
-    browserSupport: {
-      chrome: "117+",
-      firefox: "71+",
-      safari: "16+",
-      edge: "117+"
-    }
-  },
-  5: {
-    title: "CSS Nesting",
-    description: "Native CSS nesting allows you to write more maintainable and logical stylesheets without a preprocessor.",
-    code: `.card {
-  background: white;
-  
-  & .title {
-    color: navy;
-  }
-  
-  &:hover {
-    background: #f0f0f0;
-  }
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting",
-      webdev: "https://web.dev/articles/css-nesting",
-      youtube: "https://youtu.be/YnWPeA6l5UE"
-    },
-    browserSupport: {
-      chrome: "112+",
-      firefox: "117+",
-      safari: "16.4+",
-      edge: "112+"
-    }
-  },
-  6: {
-    title: "Custom Properties with @property",
-    description: "Define custom properties with type checking, default values, and inheritance behavior.",
-    code: `@property --hue {
-  syntax: '<number>';
-  initial-value: 0;
-  inherits: false;
-}
-
-.element {
-  background: hsl(var(--hue), 50%, 50%);
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@property",
-      webdev: "https://web.dev/articles/at-property",
-      youtube: "https://youtu.be/kX3ELv3-9C0"
-    },
-    browserSupport: {
-      chrome: "85+",
-      firefox: "104+",
-      safari: "15.4+",
-      edge: "85+"
-    }
-  },
+//   6: {
+//     title: "Custom Properties with @property",
+//     description: "Define custom properties with type checking, default values, and inheritance behavior.",
+//     code: `@property --hue {
+//   syntax: '<number>';
+//   initial-value: 0;
+//   inherits: false;
+// }
+// 
+// .element {
+//   background: hsl(var(--hue), 50%, 50%);
+// }`,
+//     links: {
+//       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@property",
+//       webdev: "https://web.dev/articles/at-property",
+//       youtube: "https://youtu.be/kX3ELv3-9C0"
+//     },
+//     browserSupport: {
+//       chrome: "85+",
+//       firefox: "104+",
+//       safari: "15.4+",
+//       edge: "85+"
+//     }
+//   },
   7: {
     title: "View Transitions API",
-    description: "Create smooth transitions between different states or views of your web application.",
+    description: "The View Transitions API provides a mechanism for easily creating animated transitions between different website views. This includes animating between DOM states in a single-page app (SPA), and animating the navigation between documents in a multi-page app (MPA).",
     code: `::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.5s;
@@ -188,14 +243,13 @@ document.startViewTransition(() => {
 }); */`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API",
-      webdev: "https://web.dev/articles/view-transitions",
       youtube: "https://youtu.be/JCJUPJ_zDQ4"
     },
     browserSupport: {
-      chrome: "110+",
-      firefox: "Pending",
-      safari: "Pending",
-      edge: "110+"
+      chrome: "126+",
+      firefox: "No",
+      safari: "Technical Preview",
+      edge: "126+"
     }
   },
   8: {

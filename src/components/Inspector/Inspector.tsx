@@ -65,7 +65,7 @@ export const Inspector: React.FC<InspectorProps> = ({ isOpen, content, onClose }
                       <path d="M4.5 2.5H11.5L13.5 4.5V13.5H2.5V2.5H4.5Z" stroke="currentColor" strokeWidth="1.5" />
                       <path d="M5 6.5H11M5 9.5H11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                     </svg>
-                    web.dev Info
+                    web.dev / Chrome Developers Article
                   </a>
                 </li>
               )}
