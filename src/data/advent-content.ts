@@ -253,7 +253,7 @@ document.startViewTransition(() => {
     }
   },
   8: {
-    title: "Cascade Layers",
+    title: "CSS Layers",
     description: "Control specificity with more granularity by creating explicit layers of styles.",
     code: `@layer base, components, utilities;
 
@@ -266,8 +266,6 @@ document.startViewTransition(() => {
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@layer",
-      webdev: "https://web.dev/articles/cascade-layers",
-      youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
       chrome: "99+",
@@ -277,218 +275,275 @@ document.startViewTransition(() => {
     }
   },
   9: {
-    title: "CSS Grid: masonry-like Layout",
-    description: "Create Pinterest-style masonry layouts using CSS Grid's upcoming masonry value.",
+    title: "CSS Masonry Layout",
+    description: "Create Pinterest-style masonry layouts using CSS Grid's upcoming masonry value. Still in discussion.",
     code: `.grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
   grid-template-rows: masonry;
-  align-tracks: start;
-}`,
+  gap: 1rem;
+}
+`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Masonry_layout",
-      webdev: "https://web.dev/articles/css-masonry",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
-      chrome: "103+",
-      firefox: "103+",
-      safari: "16+",
-      edge: "103+"
+      chrome: "No",
+      firefox: "77+ (with feature flag)",
+      safari: "TP",
+      edge: "No"
     }
   },
   10: {
-    title: "Color Functions",
-    description: "New color manipulation functions for more dynamic and flexible color schemes.",
-    code: `.element {
-  color: lch(50% 50 270);
-  background: color-mix(
-    in lch,
-    purple 50%,
-    lime
-  );
-}`,
+    title: "color-mix()",
+    description: "The color-mix() functional notation takes two <color> values and returns the result of mixing them in a given colorspace by a given amount.",
+    code: `li:nth-child(1) {
+  background-color: color-mix(in oklab, #a71e14 0%, white);
+}
+`,
     links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color-mix",
-      webdev: "https://web.dev/articles/color-functions",
-      youtube: "https://youtu.be/oDcb3fvtETs"
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix",
     },
     browserSupport: {
       chrome: "111+",
-      firefox: "104+",
-      safari: "16.4+",
+      firefox: "113+",
+      safari: "16.2+",
       edge: "111+"
     }
   },
   11: {
-    title: "Scroll Snap Plus",
-    description: "Enhanced scroll snapping with more control over snap positions and behavior.",
-    code: `.container {
+    title: "scroll-snap-type",
+    description: "The scroll-snap-type CSS property is set on a scroll container, opting it into scroll snapping by setting the direction and strictness of snap point enforcement within the snap port.",
+    code: `/* scroll-snap */
+.x.mandatory-scroll-snapping {
+  scroll-snap-type: x mandatory;
+}
+.x.proximity-scroll-snapping {
+  scroll-snap-type: x proximity;
+}
+.y.mandatory-scroll-snapping {
   scroll-snap-type: y mandatory;
-  scroll-padding: 2rem;
+}
+.y.proximity-scroll-snapping {
+  scroll-snap-type: y proximity;
 }
 
-.item {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
+div {
+  text-align: center;
+  scroll-snap-align: center;
+  flex: none;
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type",
-      webdev: "https://web.dev/articles/scroll-snap-plus",
-      youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
-      chrome: "105+",
-      firefox: "103+",
-      safari: "16+",
-      edge: "105+"
+      chrome: "69+",
+      firefox: "99+",
+      safari: "11+",
+      edge: "79+"
     }
   },
   12: {
-    title: "Parent Selector (:parent)",
-    description: "Select an element based on whether it has any child elements (experimental).",
-    code: `:parent {
-  display: flex;
-  gap: 1rem;
+    title: "Relative Color Syntax",
+    description: "Relative color syntax in CSS allows a color to be defined relative to another color using the from keyword and optionally calc() for any of the color values.",
+    code: `/* Complementary colors */
+/* Base color, and base color with hue channel +180 degrees */
+  
+.comp :nth-child(1) {
+  background-color: var(--base-color);
+}
+  
+.comp :nth-child(2) {
+  background-color: lch(from var(--base-color) l c calc(h + 180));
 }
 
-/* Selects elements that have children */`,
+/* Use @supports to add in support old syntax that requires deg units
+   to be specified in hue calculations. This is required for Safari 16.4+. */
+@supports (color: lch(from red l c calc(h + 180deg))) {
+  .comp :nth-child(2) {
+    background-color: lch(from var(--base-color) l c calc(h + 180deg));
+  }
+}
+
+/* Triadic colors */
+/* Base color, base color with hue channel -120 degrees, and base color */
+/* with hue channel +120 degrees */
+
+.triadic :nth-child(1) {
+  background-color: var(--base-color);
+}
+
+.triadic :nth-child(2) {
+  background-color: lch(from var(--base-color) l c calc(h - 120));
+}
+
+.triadic :nth-child(3) {
+  background-color: lch(from var(--base-color) l c calc(h + 120));
+}
+
+/* Use @supports to add in support old syntax that requires deg units
+   to be specified in hue calculations. This is required for Safari 16.4+. */
+@supports (color: lch(from red l c calc(h + 120deg))) {
+  .triadic :nth-child(2) {
+    background-color: lch(from var(--base-color) l c calc(h - 120deg));
+  }
+
+  .triadic :nth-child(3) {
+    background-color: lch(from var(--base-color) l c calc(h + 120deg));
+  }
+}
+
+/* Tetradic colors */
+/* Base color, and base color with hue channel +90, +180, and +270 degrees */
+
+.tetradic :nth-child(1) {
+  background-color: var(--base-color);
+}
+
+.tetradic :nth-child(2) {
+  background-color: lch(from var(--base-color) l c calc(h + 90));
+}
+
+.tetradic :nth-child(3) {
+  background-color: lch(from var(--base-color) l c calc(h + 180));
+}
+
+.tetradic :nth-child(4) {
+  background-color: lch(from var(--base-color) l c calc(h + 270));
+}
+
+/* Use @supports to add in support old syntax that requires deg units
+   to be specified in hue calculations. This is required for Safari 16.4+. */
+@supports (color: lch(from red l c calc(h + 90deg))) {
+  .tetradic :nth-child(2) {
+    background-color: lch(from var(--base-color) l c calc(h + 90deg));
+  }
+
+  .tetradic :nth-child(3) {
+    background-color: lch(from var(--base-color) l c calc(h + 180deg));
+  }
+
+  .tetradic :nth-child(4) {
+    background-color: lch(from var(--base-color) l c calc(h + 270deg));
+  }
+}
+
+/* Monochrome colors */
+/* Base color, and base color with lightness channel -20, -10, +10, and +20 */
+
+.monochrome :nth-child(1) {
+  background-color: lch(from var(--base-color) calc(l - 20) c h);
+}
+
+.monochrome :nth-child(2) {
+  background-color: lch(from var(--base-color) calc(l - 10) c h);
+}
+
+.monochrome :nth-child(3) {
+  background-color: var(--base-color);
+}
+
+.monochrome :nth-child(4) {
+  background-color: lch(from var(--base-color) calc(l + 10) c h);
+}
+
+.monochrome :nth-child(5) {
+  background-color: lch(from var(--base-color) calc(l + 20) c h);
+}
+
+/* Hide unused swatches for each palette type */
+.comp :nth-child(2) ~ div,
+.triadic :nth-child(3) ~ div,
+.tetradic :nth-child(4) ~ div {
+  display: none;
+}`,
     links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/:has",
-      webdev: "https://web.dev/articles/parent-selector",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Relative_colors",
     },
     browserSupport: {
-      chrome: "105+",
-      firefox: "121+",
-      safari: "15.4+",
-      edge: "105+"
+      chrome: "131+",
+      firefox: "133+",
+      safari: "18.0+",
+      edge: "131+"
     }
   },
   13: {
-    title: "Anchor Positioning",
-    description: "Position elements relative to an anchor element, perfect for tooltips and popovers.",
-    code: `.tooltip {
-  position: absolute;
-  anchor-name: --anchor;
-  top: anchor(--anchor top);
-  left: anchor(--anchor right);
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/anchor-name",
-      webdev: "https://web.dev/articles/anchor-positioning",
-      youtube: "https://youtu.be/oDcb3fvtETs"
-    },
-    browserSupport: {
-      chrome: "117+",
-      firefox: "Pending",
-      safari: "Pending",
-      edge: "117+"
-    }
-  },
-  14: {
-    title: "CSS Toggles",
-    description: "Create stateful toggles directly in CSS without JavaScript.",
-    code: `.accordion {
-  toggle-root: accordion;
-}
+    title: "Trigonometric Functions",
+    description: "Use mathematical functions like sin, cos, and tan in CSS.",
+    code: `/* Single <angle> values */
+width: calc(100px * cos(45deg));
+width: calc(100px * cos(0.125turn));
+width: calc(100px * cos(0.785398163rad));
 
-.panel {
-  toggle-trigger: accordion;
-  display: toggle(accordion);
-}`,
+/* Single <number> values */
+width: calc(100px * cos(63.673));
+width: calc(100px * cos(2 * 0.125));
+
+/* Other values */
+width: calc(100px * cos(pi));
+width: calc(100px * cos(e / 2));`,
     links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/toggle",
-      webdev: "https://web.dev/articles/css-toggles",
-      youtube: "https://youtu.be/YnWPeA6l5UE"
-    },
-    browserSupport: {
-      chrome: "112+",
-      firefox: "117+",
-      safari: "16.4+",
-      edge: "112+"
-    }
-  },
-  15: {
-    title: "Relative Color Syntax",
-    description: "Modify colors relative to a base color using new syntax.",
-    code: `.button {
-  background: hsl(from purple h s 80%);
-  border-color: hsl(from purple h s l / 50%);
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color",
-      webdev: "https://web.dev/articles/relative-color-syntax",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/cos",
+      webdev: "https://web.dev/articles/css-trig-functions",
     },
     browserSupport: {
       chrome: "111+",
-      firefox: "104+",
-      safari: "16.4+",
+      firefox: "108+",
+      safari: "15.4+",
       edge: "111+"
     }
   },
-  16: {
-    title: "Trigonometric Functions",
-    description: "Use mathematical functions like sin, cos, and tan in CSS.",
-    code: `.rotating-element {
-  transform: rotate(calc(sin(var(--angle)) * 1rad));
-  left: calc(cos(var(--angle)) * 100px);
-}`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/calc",
-      webdev: "https://web.dev/articles/trigonometric-functions",
-      youtube: "https://youtu.be/oDcb3fvtETs"
-    },
-    browserSupport: {
-      chrome: "115+",
-      firefox: "104+",
-      safari: "16.4+",
-      edge: "115+"
-    }
-  },
-  17: {
-    title: "Scoped Styles",
-    description: "Scope styles to a specific part of the document without leaking to other elements.",
-    code: `@scope (.card) {
-  img {
-    border-radius: 8px;
+  14: {
+    title: "@scope",
+    description: "The @scope CSS at-rule enables you to select elements in specific DOM subtrees, targeting elements precisely without writing overly-specific selectors that are hard to override, and without coupling your selectors too tightly to the DOM structure.",
+    code: `@scope (.light-scheme) {
+  :scope {
+    background-color: plum;
   }
-  
-  p {
-    margin: 1rem;
+
+  a {
+    color: darkmagenta;
+  }
+}
+
+@scope (.dark-scheme) {
+  :scope {
+    background-color: darkmagenta;
+    color: antiquewhite;
+  }
+
+  a {
+    color: plum;
   }
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@scope",
-      webdev: "https://web.dev/articles/scoped-styles",
-      youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
-      chrome: "112+",
-      firefox: "117+",
-      safari: "16.4+",
-      edge: "112+"
+      chrome: "118+",
+      firefox: "128+ (feature flag)",
+      safari: "17.4+",
+      edge: "118+"
     }
   },
-  18: {
-    title: "Font Palette Features",
-    description: "Control color fonts with multiple palettes using CSS.",
-    code: `@font-palette-values --custom {
-  font-family: "Some Color Font";
-  base-palette: 1;
-  override-colors: 0 #000, 1 #F00;
+  15: {
+    title: "@font-palette-values",
+    description: "The @font-palette-values CSS at-rule allows you to customize the default values of font-palette created by the font-maker.",
+    code: `@font-palette-values --identifier {
+  font-family: Bixa;
+}
+
+.my-class {
+  font-palette: --identifier;
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@font-palette-values",
-      webdev: "https://web.dev/articles/font-palette-features",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
     },
     browserSupport: {
-      chrome: "111+",
-      firefox: "104+",
-      safari: "16.4+",
-      edge: "111+"
+      chrome: "101+",
+      firefox: "107+",
+      safari: "14.4+",
+      edge: "101+"
     }
   },
   19: {
