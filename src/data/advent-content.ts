@@ -619,90 +619,99 @@ shadowRoot.adoptedStyleSheets = [sheet];`,
   },
   20: {
     title: "Scroll Timeline",
-    description: "Create animations that are linked to scroll progress through an element.",
-    code: `@scroll-timeline progress {
-  source: selector(".content");
-  orientation: vertical;
-  scroll-offsets: 0%, 100%;
-}
-
-.progress-bar {
-  animation-timeline: progress;
+    description: "The scroll-timeline CSS shorthand property is used to define a named scroll progress timeline, which is progressed through by scrolling a scrollable element (scroller) between top and bottom (or left and right). scroll-timeline is set on the scroller that will provide the timeline. The starting scroll position represents 0% progress and the ending scroll position represents 100% progress. If the 0% position and 100% position coincide (i.e., the scroll container has no overflow to scroll), the timeline is inactive.",
+    code: `#container {
+  height: 300px;
+  overflow-y: scroll;
+  scroll-timeline: --squareTimeline y;
+  /* Firefox supports the older "vertical" syntax */
+  scroll-timeline: --squareTimeline vertical;
+  position: relative;
 }`,
     links: {
       mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@scroll-timeline",
-      webdev: "https://web.dev/articles/scroll-timeline",
-      youtube: "https://youtu.be/YnWPeA6l5UE"
     },
     browserSupport: {
-      chrome: "112+",
-      firefox: "117+",
-      safari: "16.4+",
-      edge: "112+"
+      chrome: "115+",
+      firefox: "111+ (Feature Flag)",
+      safari: "No",
+      edge: "115+"
     }
   },
   21: {
-    title: "Media Query Ranges",
-    description: "Write more intuitive media queries using comparison operators.",
-    code: `@media (width >= 768px) and 
-       (width <= 1024px) {
-  .sidebar {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
+    title: "Custom scrollbar width & colour",
+    description: "Available from Chrome 121 are the scrollbar-width and scrollbar-color properties to style the width and, respectively, the color of the scrollbar. scrollbar-width is supposed in Safari and Firefox, but scrollbar-color is not.",
+    code: `.scroller {
+  scrollbar-color: hotpink blue;
+  scrollbar-width: 10%;
 }`,
     links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries",
-      webdev: "https://web.dev/articles/media-query-ranges",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width",
     },
     browserSupport: {
-      chrome: "105+",
-      firefox: "104+",
-      safari: "16+",
-      edge: "105+"
+      chrome: "121+",
+      firefox: "64+",
+      safari: "18.2+",
+      edge: "121+"
     }
   },
   22: {
-    title: "CSS Grid: Subgrid Stacking",
-    description: "Stack subgrids to create complex, nested layouts while maintaining alignment.",
-    code: `.grid {
-  display: grid;
-  grid-template: subgrid / subgrid;
-  grid-row: span 2;
-  grid-column: span 3;
+    title: "Scroll Snap Events",
+    description: "Built-in snap events have made previously invisible moments during scrolling, visible, at the right time, and always correct. They are the missing piece of the puzzle that makes scroll snapping a complete solution.",
+    code: `scroller.addEventListener('scrollsnapchange', event=> {
+  console.log(event.snapTargetBlock);
+  console.log(event.snapTargetInline);
+})`,
+    links: {
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_scroll_snap/Using_scroll_snap_events",
+    },
+    browserSupport: {
+      chrome: "129+",
+      firefox: "No",
+      safari: "No",
+      edge: "129+"
+    }
+  },
+  23: {
+    title: "starting-style",
+    description: "The @starting-style at-rule is used to define styles for an element before it has received the first style update. When setting those targeted properties to transition with CSS transitions, you can use these starting-styles to create entry effects.",
+    code: `div {
+  transition: background-color 0.5s;
+  background-color: transparent;
+
+  @starting-style {
+    background-color: yellow;
+  }
 }`,
     links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid",
-      webdev: "https://web.dev/articles/css-grid-subgrid-stacking",
-      youtube: "https://youtu.be/oDcb3fvtETs"
+      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style",
     },
     browserSupport: {
       chrome: "117+",
-      firefox: "71+",
-      safari: "16+",
+      firefox: "129+ Partial Support",
+      safari: "17.5+",
       edge: "117+"
     }
   },
   24: {
-    title: "Container Style Queries",
-    description: "Apply styles based on the computed styles of a container, not just its size.",
-    code: `@container style(--theme: dark) {
-  .card {
-    background: #333;
-    color: white;
-  }
+      title: "Backdrop inheritance",
+      description: "Historically the ::backdrop pseudo-element didn’t inherit from anywhere. From Chrome 122, this ::backdrop pseudo-element has been converted into a tree abiding element, meaning that it inherits any inheritable properties from its originating element. Thanks to this change it is possible to override custom property values on specific elements and ::backdrop will have access to them. For example, the ::backdrop associated with an open <dialog> element can now access the custom properties available in that <dialog>.",
+      code: `dialog {
+  --border-color: #6300ff;
+  --backdrop-color: #6300ff33; /* Could also use relative color syntax here :) */
+}
+      
+::backdrop {
+  background-color: var(--backdrop-color); /* This works as of Chrome 122 */
 }`,
-    links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_container_queries",
-      webdev: "https://web.dev/articles/container-style-queries",
-      youtube: "https://youtu.be/3F5ALBxJqPY"
-    },
-    browserSupport: {
-      chrome: "105+",
-      firefox: "110+",
-      safari: "16+",
-      edge: "105+"
+      links: {
+        mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/::backdrop",
+      },
+      browserSupport: {
+        chrome: "122+",
+        firefox: "125+",
+        safari: "17+",
+        edge: "122+"
+      }
     }
-  }
 };
