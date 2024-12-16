@@ -546,27 +546,75 @@ width: calc(100px * cos(e / 2));`,
       edge: "101+"
     }
   },
-  19: {
-    title: "CSS Module Scripts",
-    description: "Import CSS directly in JavaScript as a module.",
-    code: `/* styles.css */
-@layer components {
-  .button { /* ... */ }
+  16: {
+      title: "Field Sizing",
+      description: "Without field-sizing, to create a content-sized input field you had to either guess at an average size of a text field input or use JavaScript to count characters and increase the element height or width as the user entered text. Now it's a CSS one-liner.",
+      code: `textarea, select, input {
+  field-sizing: content;
+}`,
+      links: {
+        mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing",
+      },
+      browserSupport: {
+        chrome: "123+",
+        firefox: "No",
+        safari: "No",
+        edge: "123+"
+      }
+    },
+  17: {
+          title: "interpolate-size",
+          description: "The interpolate-size CSS property allows you to enable animations and transitions between a <length-percentage> value and an intrinsic size value such as auto, fit-content, or max-content.",
+          code: `:root {
+  interpolate-size: allow-keywords;
+}`,
+          links: {
+            mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/interpolate-size",
+            webdev: "https://developer.chrome.com/docs/css-ui/animate-to-height-auto"
+          },
+          browserSupport: {
+            chrome: "129+",
+            firefox: "No",
+            safari: "No",
+            edge: "129+"
+          }
+        },
+  18: {
+              title: "light-dark()",
+              description: "System colors have the ability to react to the current used color-scheme value. The light-dark() function exposes the same capability to authors.",
+              code: `:root {
+  color-scheme: light dark;
 }
 
-/* Import in JS:
-import styles from './styles.css' assert { type: 'css' };
-document.adoptedStyleSheets = [styles]; */`,
+body {
+  color: light-dark(#333b3c, #efefec);
+  background-color: light-dark(#efedea, #223a2c);
+}
+`,
+              links: {
+                mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/light-dark",
+              },
+              browserSupport: {
+                chrome: "123+",
+                firefox: "120+",
+                safari: "17.5+",
+                edge: "123+"
+              }
+            },
+  19: {
+    title: "CSS Module Scripts",
+    description: "With the new CSS module scripts feature, you can load CSS style sheets with import statements, just like JavaScript modules. The style sheets can then be applied to documents or shadow roots in the same manner as constructable stylesheets. This can be more convenient and more performant than other ways of importing and applying CSS.",
+    code: `import sheet from './styles.css' assert { type: 'css' };
+document.adoptedStyleSheets = [sheet];
+shadowRoot.adoptedStyleSheets = [sheet];`,
     links: {
-      mdn: "https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_modules",
       webdev: "https://web.dev/articles/css-module-scripts",
-      youtube: "https://youtu.be/oDcb3fvtETs"
     },
     browserSupport: {
-      chrome: "111+",
-      firefox: "104+",
-      safari: "16.4+",
-      edge: "111+"
+      chrome: "93+",
+      firefox: "No",
+      safari: "No",
+      edge: "93+"
     }
   },
   20: {
